@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withComponentInputBinding()),
-    { provide: POKEMON_BASE_PATH, useValue: "http://pokeapi.co/api/v2"},
+    { provide: POKEMON_BASE_PATH, useValue: "https://pokeapi.co/api/v2"},
     importProvidersFrom(HttpClientModule),
   ]
 };
