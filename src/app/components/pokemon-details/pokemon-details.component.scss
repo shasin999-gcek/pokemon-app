@@ -1,0 +1,31 @@
+@mixin icon-props {
+    display: block;
+    background-size: contain;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.weight-icon {
+    background: url(../../../assets/images/weight.svg) no-repeat;
+    @include icon-props();
+}
+
+.height-icon {
+    background: url(../../../assets/images/scale.svg) no-repeat;
+    @include icon-props();
+}
+
+.ability-icon {
+    background: url(../../../assets/images/ability.svg) no-repeat;
+    @include icon-props();
+}
+
+.info-icon {
+    background: url(../../../assets/images/announcement.svg) no-repeat;
+    @include icon-props();
+}
+
+
+.text-large {
+    font-size: 1.875;
+}

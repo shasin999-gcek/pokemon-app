@@ -1,0 +1,24 @@
+<ng-container *ngIf="speciesList$ | async as speciesList; else showLoading">
+  <div
+    class="evolution-section mt-4 d-flex flex-column align-items-center text-center"
+  >
+    @for (species of speciesList; track $index; let last = $last) {
+    <div
+      class="card w-50"
+      [ngClass]="{
+        'text-bg-success': species === pokemon.species.name,
+        'text-bg-secondary': species !== pokemon.species.name
+      }"
+    >
+      <div class="card-body">
+        <h5 class="card-title">{{ species }}</h5>
+      </div>
+    </div>
+    <span *ngIf="!last" class="down-arrow my-3"></span>
+    }
+  </div>
+</ng-container>
+
+<ng-template #showLoading>
+  <app-spinner-loading></app-spinner-loading>
+</ng-template>

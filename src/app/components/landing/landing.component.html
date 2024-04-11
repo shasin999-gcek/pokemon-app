@@ -1,0 +1,26 @@
+@if (isLoading) {
+  <app-shimmer-ui></app-shimmer-ui>
+} 
+@else {  
+  <div class="row my-3 gy-5">
+    <div class="col-12 col-sm-3" *ngFor="let pokemon of pokemonList">
+      <app-pokemon-card 
+        [pokemon]="pokemon"
+        (cardClicked)="viewPokemon($event)">
+      </app-pokemon-card>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center my-5 w-100">
+    <ngb-pagination 
+        [collectionSize]="totalCount" 
+        [(page)]="page" 
+        [pageSize]="12"
+        [maxSize]="1"
+        size="lg"
+        [directionLinks]="true" 
+        (pageChange)="changePage($event)"/>
+  </div>
+}
+
+

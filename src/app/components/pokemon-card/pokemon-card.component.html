@@ -1,0 +1,5 @@
+<div class="pokemon-card" [class.no-hover]="!clickable" (click)="clickable && cardClicked.emit(pokemon)">
+  <span class="pokemon-number text-muted"># {{ pokemon.id }}</span>
+  <img class="pokemon-image" [src]="pokemon.imgSrc" [alt]="pokemon.name"/>
+  <h2 class="mt-3 text-muted">{{ pokemon.name }}</h2>
+</div>

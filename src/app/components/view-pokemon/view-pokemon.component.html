@@ -1,0 +1,29 @@
+<ng-container *ngIf="pokemon$ | async as pokemon; else showLoading">
+    <div class="row mt-5">
+        <div class="col-12 col-md-4">
+            <app-pokemon-card [pokemon]="pokemon" [clickable]="false"></app-pokemon-card>
+        </div>
+        <div class="col-12 col-md-8">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="activeTabId" class="nav-tabs mt-4 mt-md-0">
+                <li [ngbNavItem]="1">
+                    <button ngbNavLink>Stats</button>
+                    <ng-template ngbNavContent>
+                       <app-pokemon-details [pokemon]="pokemon"></app-pokemon-details>
+                    </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                    <button ngbNavLink>Evolutions</button>
+                    <ng-template ngbNavContent>
+                       <app-pokemon-evolution [pokemon]="pokemon"></app-pokemon-evolution>
+                    </ng-template>
+                </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #showLoading>
+    <app-spinner-loading></app-spinner-loading>
+</ng-template>
