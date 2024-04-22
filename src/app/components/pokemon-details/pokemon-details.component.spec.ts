@@ -14,6 +14,13 @@ describe('PokemonDetailsComponent', () => {
     
     fixture = TestBed.createComponent(PokemonDetailsComponent);
     component = fixture.componentInstance;
+    component.pokemon = {
+      id: "1",
+      name: "Pikachu",
+      imgSrc: "string",
+      weight: 100,
+      species: null as any
+    };
     fixture.detectChanges();
   });
 

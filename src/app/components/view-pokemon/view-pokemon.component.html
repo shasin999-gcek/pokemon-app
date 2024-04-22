@@ -6,13 +6,13 @@
         <div class="col-12 col-md-8">
             <ul ngbNav #nav="ngbNav" [(activeId)]="activeTabId" class="nav-tabs mt-4 mt-md-0">
                 <li [ngbNavItem]="1">
-                    <button ngbNavLink>Stats</button>
+                    <button ngbNavLink i18n="@@stats">Stats</button>
                     <ng-template ngbNavContent>
                        <app-pokemon-details [pokemon]="pokemon"></app-pokemon-details>
                     </ng-template>
                 </li>
                 <li [ngbNavItem]="2">
-                    <button ngbNavLink>Evolutions</button>
+                    <button ngbNavLink i18n="@@evolutions">Evolutions</button>
                     <ng-template ngbNavContent>
                        <app-pokemon-evolution [pokemon]="pokemon"></app-pokemon-evolution>
                     </ng-template>
