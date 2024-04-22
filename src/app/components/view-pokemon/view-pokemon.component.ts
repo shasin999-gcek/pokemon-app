@@ -36,6 +36,10 @@ export class ViewPokemonComponent implements OnInit {
     this.getPokemonDetails();
   }
 
+  /**
+   * Initialize pokemon$ to Observable
+   * which returns pokemon details and species response
+   */
   getPokemonDetails() {
     this.pokemon$ = this.pokemonService.getPokemonDetailsById(this.id).pipe(
       switchMap((pokemon: any) => 

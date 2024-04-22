@@ -22,6 +22,10 @@ export class PokemonEvolutionComponent implements OnInit {
     this.getEvolutionChain();
   }
 
+  /**
+   * Initialize speciesList$ to Observable
+   * with return evolution response
+   */
   getEvolutionChain() {
     this.speciesList$ = this.pokemonService.getEvolutionChainByUrl(
       this.pokemon?.species?.evolutionUrl as string
@@ -30,6 +34,13 @@ export class PokemonEvolutionComponent implements OnInit {
     );
   }
 
+  /**
+   * Gets species list,
+   * Recursively traverse through nested objected
+   * and push to an array, and returns it
+   * @param chain 
+   * @returns species list 
+   */
   getSpeciesList(chain: any): string[] {
     let speciesList: string[] = [];
     const _getSpeciesList = (obj: any) => {

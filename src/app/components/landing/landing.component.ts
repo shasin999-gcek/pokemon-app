@@ -30,6 +30,9 @@ export class LandingComponent implements OnInit {
     this.getPokemonList();
   }
 
+  /**
+   * Gets pokemon list
+   */
   getPokemonList() {
     this.isLoading = true;
     this.pokemonService
@@ -43,6 +46,12 @@ export class LandingComponent implements OnInit {
       .subscribe();
   }
 
+  
+  /**
+   * Fetches pokemon details
+   * @param pokemonList 
+   * @returns Observable<{ [key: string]: string}>
+   */
   fetchPokemonDetails(pokemonList: any[]) {
     let source$: { [key: string]: Observable<any> };
     source$ = pokemonList.reduce((result, pokemon) => {
@@ -53,7 +62,12 @@ export class LandingComponent implements OnInit {
     }, {});
     return forkJoin(source$);
   }
-
+  
+  /**
+   * Maps pokemon data
+   * @param pokemonDetails 
+   * @returns pokemon data 
+   */
   mapPokemonData(pokemonDetails: any) {
     this.pokemonList = [];
     for(let pokemonName in pokemonDetails) {
@@ -62,10 +76,20 @@ export class LandingComponent implements OnInit {
     return pokemonDetails;
   }
 
+  
+  /**
+   * Reload page with updated page details
+   * @param event 
+   */
   changePage(event: any) {
     this.getPokemonList();
   }
 
+  /**
+   * Views pokemon
+   * @param pokemon 
+   * navigates to details page
+   */
   viewPokemon(pokemon: Pokemon): void {
     this.router.navigate(["pokemon", pokemon.id]);
   }
